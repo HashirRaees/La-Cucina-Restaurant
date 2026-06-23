@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Cucina – Authentic Italian Restaurant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #8B1A1A;
+      --primary-dark: #6B1313;
+      --primary-light: #B5451B;
+      --gold: #C9A252;
+      --dark: #1C1C1C;
+      --gray-dark: #333333;
+      --gray-mid: #666666;
+      --gray-light: #999999;
+      --bg-light: #F9F6F1;
+      --bg-section: #FFFFFF;
+      --border: #E8E0D5;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Lato', 'Helvetica Neue', sans-serif;
+      --container: 1160px;
+      --radius: 4px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      color: var(--gray-dark);
+      background: #fff;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HEADER / NAV ── */
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(28, 28, 28, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.3s;
+    }
+
+    #site-header.scrolled {
+      background: #1C1C1C;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .site-logo {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .site-logo span {
+      color: var(--gold);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0;
+    }
+
+    .main-nav ul li a {
+      display: block;
+      padding: 0 18px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .main-nav ul li a:hover {
+      color: var(--gold);
+    }
+
+    .nav-btn {
+      margin-left: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 76px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #1C1C1C;
+      z-index: 998;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--gold);
+    }
+
+    .mobile-nav .mob-btn {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--primary);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      font-family: var(--sans);
+    }
+
+    /* ── HERO ── */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: #1C1C1C;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url("https://foodandpleasure.com/wp-content/uploads/2018/06/restaurantes-bonitos-cdmx-aromas-.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* Dark overlay */
+    .hero-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.747);
+      /* Adjust opacity as needed */
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 76px;
+      width: 100%;
+    }
+
+    .hero-content .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      min-height: calc(100vh - 76px);
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .hero-text-col {}
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge-line {
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-heading {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-heading span {
+      color: var(--gold);
+      font-style: italic;
+      display: inline;
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+      line-height: 1.85;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 32px;
+      border-radius: var(--radius);
+      border: 2px solid var(--primary);
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: transparent;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 32px;
+      border-radius: var(--radius);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: #fff;
+    }
+
+    .hero-social-proof {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .proof-item {}
+
+    .proof-num {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .proof-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      margin-top: 4px;
+    }
+
+    /* Hero right: info card */
+    .hero-card-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 24px 28px;
+      backdrop-filter: blur(6px);
+    }
+
+    .info-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .info-card-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .info-card-value {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    .info-card-sub {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 4px;
+    }
+
+    /* Award row */
+    .award-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ── SECTION COMMONS ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .section-eyebrow::before,
+    .section-eyebrow::after {
+      content: '—';
+      margin: 0 8px;
+      color: var(--gold);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .section-description {
+      font-size: 1rem;
+      color: var(--gray-mid);
+      max-width: 560px;
+      margin: 16px auto 0;
+      line-height: 1.8;
+    }
+
+    /* Light/dark section backgrounds */
+    .bg-light {
+      background: var(--bg-light);
+    }
+
+    .bg-dark {
+      background: var(--dark);
+    }
+
+    .bg-white {
+      background: #fff;
+    }
+
+    /* ── FEATURES STRIP ── */
+    .features-strip {
+      background: var(--primary);
+      padding: 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .feature-item {
+      padding: 32px 28px;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .feature-item:last-child {
+      border-right: none;
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .feature-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .feature-text {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+    }
+
+    /* ── ABOUT SECTION ── */
+    .about-section {
+      padding: 96px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .about-images {
+      position: relative;
+    }
+
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 8px;
+      /* background: linear-gradient(160deg, #C9A252 0%, #B5451B 45%, #8B1A1A 75%, #1C1C1C 100%); */
+      background: url(https://i.pinimg.com/originals/b7/88/3e/b7883e6ebafd3427ce26787333eb968b.jpg?nii=t);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .about-img-accent {
+      position: absolute;
+      bottom: -28px;
+      right: -28px;
+      width: 55%;
+      aspect-ratio: 4/3;
+      border-radius: 8px;
+      border: 5px solid #fff;
+      background: url(https://pomodoro-e-basilico.at/cf-cgi/families/28696/resource-types/background.png?ts=2025-11-21T07%3A44%3A26&width=3840&height=2160&fit=cover&quality=90&format=auto);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      /* background: linear-gradient(135deg, #5C1A2E 0%, #8B2A46 60%, #C9A252 100%); */
+    }
+
+    .about-years-badge {
+      position: absolute;
+      top: 24px;
+      left: -20px;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 4px solid #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(139, 26, 26, 0.4);
+    }
+
+    .badge-num {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .badge-text {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+    }
+
+    .about-content {
+      padding-right: 20px;
+    }
+
+    .about-content p {
+      color: var(--gray-mid);
+      margin-bottom: 18px;
+      line-height: 1.85;
+    }
+
+    .about-quote {
+      border-left: 3px solid var(--primary);
+      padding: 16px 20px;
+      margin: 28px 0;
+      background: var(--bg-light);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .about-quote p {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--dark);
+      margin: 0 0 8px;
+    }
+
+    .about-quote cite {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--gray-light);
+      text-transform: uppercase;
+      font-style: normal;
+    }
+
+    .checklist {
+      list-style: none;
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: var(--gray-dark);
+    }
+
+    .check-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    /* ── MENU SECTION ── */
+    .menu-section {
+      padding: 96px 0;
+    }
+
+    .menu-tabs-row {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .menu-tab-btn {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: var(--gray-light);
+      cursor: pointer;
+      margin-bottom: -1px;
+      transition: all 0.2s;
+    }
+
+    .menu-tab-btn:hover {
+      color: var(--primary);
+    }
+
+    .menu-tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .menu-items-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .menu-card {
+      display: flex;
+      gap: 16px;
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    .menu-card:hover {
+      background: var(--bg-light);
+    }
+
+    .menu-card:nth-child(odd) {
+      border-right: 1px solid var(--border);
+    }
+
+    .menu-number {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: rgba(139, 26, 26, 0.15);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 36px;
+    }
+
+    .menu-card-body {
+      flex: 1;
+    }
+
+    .menu-dish-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .menu-dish-desc {
+      font-size: 0.84rem;
+      color: var(--gray-mid);
+      line-height: 1.6;
+    }
+
+    .menu-dish-badge {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+
+    .badge-veg {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .badge-chefs {
+      background: #FFF3E0;
+      color: #E65100;
+    }
+
+    .badge-gf {
+      background: #F3E5F5;
+      color: #6A1B9A;
+    }
+
+    .menu-price {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .menu-cta-row {
+      text-align: center;
+      margin-top: 44px;
+    }
+
+    .btn-outline-primary {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--primary);
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      border: 2px solid var(--primary);
+      transition: all 0.2s;
+    }
+
+    .btn-outline-primary:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* ── GALLERY ── */
+    .gallery-section {
+      padding: 96px 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 260px 260px;
+      gap: 12px;
+      margin-top: 0;
+    }
+
+    .gallery-item {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item:nth-child(1) {
+      grid-column: 1;
+      grid-row: 1 / 3;
+    }
+
+    .gallery-item:nth-child(4) {
+      grid-column: 3;
+      grid-row: 1 / 3;
+    }
+
+    .g-bg1 {
+      /* background: linear-gradient(160deg, #D4916A 0%, #8B1A1A 60%, #1C1C1C 100%); */
+      background: url(https://i.pinimg.com/originals/08/63/87/08638786d40e58679143291092b9915a.jpg?nii=t);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+    .g-bg1::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.397);
+    }
+
+    .g-bg2 {
+      /* background: linear-gradient(135deg, #8B2A46 0%, #5C1A2E 100%); */
+        background: url(https://static.wixstatic.com/media/21a05c_89205d59820341e88058613c03666cae~mv2.jpg/v1/fill/w_2500,h_1666,al_c/21a05c_89205d59820341e88058613c03666cae~mv2.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+    .g-bg2::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.397);
+    }
+
+    .g-bg3 {
+      /* background: linear-gradient(135deg, #C9A252 0%, #8B5E32 100%); */
+      background: url(https://blog.giallozafferano.it/vickyart/wp-content/uploads/2024/07/tiramisu-caffe-cioccolato-amaretti-1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+    .g-bg3::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.397);
+    }
+
+    .g-bg4 {
+      /* background: linear-gradient(160deg, #2E1A0E 0%, #5C2210 50%, #8B1A1A 100%); */
+      background: url(https://i.pinimg.com/originals/d6/11/2b/d6112b88f1a44b9347349daffafc03af.png?nii=t);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+     .g-bg4::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.397);
+    }
+
+    .g-bg5 {
+      background: linear-gradient(135deg, #1C1C1C 0%, #3D2B1F 100%);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28, 28, 28, 0.75) 0%, transparent 50%);
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-label {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: #fff;
+    }
+
+    /* ── RESERVATION SECTION ── */
+    .reservation-section {
+      padding: 96px 0;
+    }
+
+    .reservation-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .res-info-col {}
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+    }
+
+    .hours-table tr td {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    .hours-table tr td:first-child {
+      color: var(--gray-mid);
+    }
+
+    .hours-table tr td:last-child {
+      font-weight: 700;
+      text-align: right;
+      color: var(--dark);
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--gray-mid);
+    }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* WordPress-style form */
+    .wp-form {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 36px;
+    }
+
+    .wp-form h3 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .wp-form .form-subtitle {
+      font-size: 0.88rem;
+      color: var(--gray-mid);
+      margin-bottom: 28px;
+    }
+
+    .wp-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .wp-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .wp-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--gray-dark);
+    }
+
+    .wp-required {
+      color: var(--primary);
+    }
+
+    .wp-input,
+    .wp-select,
+    .wp-textarea {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--dark);
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #D5CFC7;
+      border-radius: 4px;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .wp-input:focus,
+    .wp-select:focus,
+    .wp-textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(139, 26, 26, 0.1);
+    }
+
+    .wp-select {
+      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;
+      cursor: pointer;
+    }
+
+    .wp-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .wp-submit-row {
+      margin-top: 8px;
+    }
+
+    .wp-submit {
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .wp-submit:hover {
+      background: var(--primary-dark);
+    }
+
+    .wp-note {
+      font-size: 0.78rem;
+      color: var(--gray-light);
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      padding: 96px 0;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+      position: relative;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .quote-mark {
+      font-family: var(--serif);
+      font-size: 5rem;
+      line-height: 0.7;
+      color: rgba(139, 26, 26, 0.12);
+      position: absolute;
+      top: 20px;
+      left: 24px;
+    }
+
+    .star-row {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+    }
+
+    .star-icon {
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .testimonial-text {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--gray-dark);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .av-red {
+      background: var(--primary);
+    }
+
+    .av-dark {
+      background: #2D3748;
+    }
+
+    .av-wine {
+      background: #5C1A2E;
+    }
+
+    .author-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .author-detail {
+      font-size: 0.78rem;
+      color: var(--gray-light);
+      margin-top: 2px;
+    }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #8B1A1A 0%, #5C1010 50%, #1C1C1C 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(201, 162, 82, 0.2) 0%, transparent 60%);
+    }
+
+    .cta-band .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-band h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .cta-band h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cta-band p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 32px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: #1C1C1C;
+      text-decoration: none;
+      padding: 15px 32px;
+      border-radius: var(--radius);
+      border: 2px solid var(--gold);
+      transition: all 0.2s;
+    }
+
+    .btn-gold:hover {
+      background: #B8922A;
+      border-color: #B8922A;
+    }
+
+    .btn-white-outline {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: transparent;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 32px;
+      border-radius: var(--radius);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.2s;
+    }
+
+    .btn-white-outline:hover {
+      border-color: #fff;
+    }
+
+    /* ── FOOTER ── */
+    #site-footer {
+      background: #111;
+      padding: 64px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {}
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-tagline {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.75rem;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .footer-col-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links li a {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links li a:hover {
+      color: var(--gold);
+    }
+
+    .footer-info-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-info-item {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.5;
+    }
+
+    .footer-info-item strong {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 2px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .footer-bottom a {
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--gold);
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .feature-item:nth-child(3) {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .feature-item:nth-child(4) {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+    }
+
+    @media (max-width: 860px) {
+
+      .main-nav ul,
+      .nav-btn {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-content .container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .hero-card-col {
+        display: none;
+      }
+
+      .hero-heading {
+        font-size: 2.4rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-images {
+        max-width: 400px;
+      }
+
+      .about-img-accent {
+        display: none;
+      }
+
+      .about-years-badge {
+        left: auto;
+        right: 16px;
+      }
+
+      .about-content {
+        padding-right: 0;
+      }
+
+      .menu-items-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-card:nth-child(odd) {
+        border-right: none;
+      }
+
+      .menu-tab-btn {
+        padding: 12px 14px;
+        font-size: 0.75rem;
+        letter-spacing: 0.06em;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, 180px);
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .gallery-item:nth-child(4) {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .reservation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .about-section,
+      .menu-section,
+      .gallery-section,
+      .reservation-section,
+      .testimonials-section {
+        padding: 64px 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .wp-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-social-proof {
+        gap: 1.5rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu-tabs-row {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 0 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="site-logo">La <span>Cucina</span></a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reservation">Reserve</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <a href="#reservation" class="nav-btn">Book a Table</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="#about" class="mob-link">Our Story</a>
+    <a href="#menu" class="mob-link">Menu</a>
+    <a href="#gallery" class="mob-link">Gallery</a>
+    <a href="#reservation" class="mob-link">Reserve</a>
+    <a href="#reservation" class="mob-btn">Book a Table</a>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-text-col">
+          <div class="hero-badge"><span class="hero-badge-line"></span> Est. 1987 · San Francisco</div>
+          <h1 class="hero-heading">
+            Authentic Italian<br>
+            Cuisine, Made With
+            <span>Amore</span>
+          </h1>
+          <p class="hero-description">
+            Generations-old recipes, wood-fired traditions, and seasonal ingredients — served in an atmosphere that
+            feels like home in Florence.
+          </p>
+          <div class="hero-buttons">
+            <a href="#reservation" class="btn-primary">Reserve Your Table</a>
+            <a href="#menu" class="btn-outline">Explore the Menu</a>
+          </div>
+          <div class="hero-social-proof">
+            <div class="proof-item">
+              <div class="proof-num">37+</div>
+              <div class="proof-label">Years Open</div>
+            </div>
+            <div class="proof-item">
+              <div class="proof-num">4.9★</div>
+              <div class="proof-label">Guest Rating</div>
+            </div>
+            <div class="proof-item">
+              <div class="proof-num">48</div>
+              <div class="proof-label">Dishes</div>
+            </div>
+            <div class="proof-item">
+              <div class="proof-num">2</div>
+              <div class="proof-label">Michelin Stars</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card-col">
+          <div class="award-row">
+            <div class="info-card">
+              <div class="info-card-icon">⭐⭐</div>
+              <div class="info-card-label">Michelin Guide</div>
+              <div class="info-card-value">2-Star Restaurant</div>
+              <div class="info-card-sub">San Francisco, 2024</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-icon">🏆</div>
+              <div class="info-card-label">Best Italian</div>
+              <div class="info-card-value">SF Chronicle</div>
+              <div class="info-card-sub">3 years running</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-label">Opening Hours</div>
+            <div class="info-card-value">
+              Mon – Thu &nbsp; 12:00 – 22:00<br>
+              Fri – Sat &nbsp;&nbsp;&nbsp;&nbsp; 12:00 – 23:00<br>
+              Sunday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12:00 – 21:00
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-label">Location</div>
+            <div class="info-card-value">284 Columbus Ave</div>
+            <div class="info-card-sub">North Beach, San Francisco · +1 (415) 823-4400</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES STRIP ═══ -->
+  <div class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">🍝</div>
+          <div class="feature-title">Handmade Pasta Daily</div>
+          <div class="feature-text">Fresh dough, rolled and cut every morning</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔥</div>
+          <div class="feature-title">Wood-Fired Oven</div>
+          <div class="feature-text">Napoletana-style, 450°C, 90-second bake</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🍷</div>
+          <div class="feature-title">700+ Wine Cellar</div>
+          <div class="feature-text">Curated Italian and international labels</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🌿</div>
+          <div class="feature-title">Farm-to-Table</div>
+          <div class="feature-text">Local sourcing, seasonal menus, zero waste</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about-section bg-white" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images fade-up">
+          <div class="about-img-main"></div>
+          <div class="about-img-accent"></div>
+          <div class="about-years-badge">
+            <span class="badge-num">37</span>
+            <span class="badge-text">yrs of craft</span>
+          </div>
+        </div>
+        <div class="about-content fade-up">
+          <div class="section-eyebrow">Our Story</div>
+          <h2 class="section-title">Nonna's recipes, <em>reimagined</em> for today</h2>
+          <p>La Cucina opened its doors in 1987 when Chef Marco Conti brought his grandmother's handwritten recipe book
+            to a 12-seat trattoria in North Beach. Three decades later, that same soul guides every dish we serve.</p>
+          <blockquote class="about-quote">
+            <p>"Cooking is a conversation between the ingredients, the season, and the person you're feeding."</p>
+            <cite>— Marco Conti, Executive Chef & Founder</cite>
+          </blockquote>
+          <ul class="checklist">
+            <li><span class="check-icon">✓</span> Every pasta made fresh in-house, every morning</li>
+            <li><span class="check-icon">✓</span> Ingredients sourced from local farms and our kitchen garden</li>
+            <li><span class="check-icon">✓</span> Private dining room for up to 30 guests</li>
+            <li><span class="check-icon">✓</span> Seasonal menu updated quarterly by the chef</li>
+          </ul>
+          <a href="#reservation" class="btn-primary" style="margin-top: 8px;">Book a Table</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MENU ═══ -->
+  <section class="menu-section bg-light" id="menu">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">Seasonal Menu</div>
+        <h2 class="section-title">Crafted with <em>care</em>, served with warmth</h2>
+        <p class="section-description">Our menu changes with the seasons. Every dish tells a story — ask your server for
+          the provenance of today's ingredients.</p>
+      </div>
+
+      <div class="menu-tabs-row">
+        <button class="menu-tab-btn active" onclick="switchTab(this,'antipasti')">Antipasti</button>
+        <button class="menu-tab-btn" onclick="switchTab(this,'pasta')">Pasta</button>
+        <button class="menu-tab-btn" onclick="switchTab(this,'secondi')">Secondi</button>
+        <button class="menu-tab-btn" onclick="switchTab(this,'dolci')">Dolci</button>
+      </div>
+
+      <div class="menu-items-grid" id="menu-grid"></div>
+
+      <div class="menu-cta-row">
+        <a href="#" class="btn-outline-primary">Download Full Menu (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GALLERY ═══ -->
+  <section class="gallery-section bg-white" id="gallery">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">Gallery</div>
+        <h2 class="section-title">A taste of the <em>atmosphere</em></h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item g-bg1">
+          <div class="gallery-overlay"><span class="gallery-label">The main dining room</span></div>
+        </div>
+        <div class="gallery-item g-bg2">
+          <div class="gallery-overlay"><span class="gallery-label">Wood-fired pizza</span></div>
+        </div>
+        <div class="gallery-item g-bg3">
+          <div class="gallery-overlay"><span class="gallery-label">Tiramisu al caffè</span></div>
+        </div>
+        <div class="gallery-item g-bg4">
+          <div class="gallery-overlay"><span class="gallery-label">Private dining cellar</span></div>
+        </div>
+        <div class="gallery-item g-bg5">
+          <div class="gallery-overlay"><span class="gallery-label">Sunday brunch service</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RESERVATION ═══ -->
+  <section class="reservation-section bg-light" id="reservation">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">Reservations</div>
+        <h2 class="section-title">Join us for an <em>evening</em></h2>
+        <p class="section-description">We recommend booking 48 hours ahead. Walk-ins welcome subject to availability.
+        </p>
+      </div>
+      <div class="reservation-grid">
+        <div class="res-info-col fade-up">
+          <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--dark);margin-bottom:8px;">
+            Opening Hours</h3>
+          <table class="hours-table">
+            <tr>
+              <td>Monday – Thursday</td>
+              <td>12:00 – 22:00</td>
+            </tr>
+            <tr>
+              <td>Friday – Saturday</td>
+              <td>12:00 – 23:00</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td>12:00 – 21:00</td>
+            </tr>
+            <tr>
+              <td>Private Dining</td>
+              <td>By arrangement</td>
+            </tr>
+          </table>
+          <div class="contact-items" id="contact">
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <strong style="display:block;font-size:0.8rem;font-weight:700;color:var(--dark);">Telephone</strong>
+                +1 (415) 823-4400
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <strong style="display:block;font-size:0.8rem;font-weight:700;color:var(--dark);">Address</strong>
+                284 Columbus Ave, North Beach, San Francisco CA 94133
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <strong style="display:block;font-size:0.8rem;font-weight:700;color:var(--dark);">Email</strong>
+                hello@lacucina.com
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="wp-form">
+            <h3>Make a Reservation</h3>
+            <p class="form-subtitle">Fill in your details and we'll confirm within 2 hours.</p>
+            <div class="wp-row">
+              <div class="wp-field">
+                <label class="wp-label">First Name <span class="wp-required">*</span></label>
+                <input type="text" class="wp-input" placeholder="Marco">
+              </div>
+              <div class="wp-field">
+                <label class="wp-label">Last Name <span class="wp-required">*</span></label>
+                <input type="text" class="wp-input" placeholder="Conti">
+              </div>
+            </div>
+            <div class="wp-row">
+              <div class="wp-field">
+                <label class="wp-label">Email Address <span class="wp-required">*</span></label>
+                <input type="email" class="wp-input" placeholder="hello@email.com">
+              </div>
+              <div class="wp-field">
+                <label class="wp-label">Phone Number</label>
+                <input type="tel" class="wp-input" placeholder="+1 (415) 000-0000">
+              </div>
+            </div>
+            <div class="wp-row">
+              <div class="wp-field">
+                <label class="wp-label">Preferred Date <span class="wp-required">*</span></label>
+                <input type="date" class="wp-input">
+              </div>
+              <div class="wp-field">
+                <label class="wp-label">Preferred Time <span class="wp-required">*</span></label>
+                <select class="wp-select">
+                  <option value="">Select a time</option>
+                  <option>12:00 PM</option>
+                  <option>1:00 PM</option>
+                  <option>6:00 PM</option>
+                  <option>7:00 PM</option>
+                  <option>7:30 PM</option>
+                  <option>8:00 PM</option>
+                  <option>8:30 PM</option>
+                  <option>9:00 PM</option>
+                </select>
+              </div>
+            </div>
+            <div class="wp-field">
+              <label class="wp-label">Number of Guests <span class="wp-required">*</span></label>
+              <select class="wp-select">
+                <option>1 guest</option>
+                <option>2 guests</option>
+                <option selected>3 – 4 guests</option>
+                <option>5 – 6 guests</option>
+                <option>7 – 8 guests</option>
+                <option>Large party (9+) — please call us</option>
+              </select>
+            </div>
+            <div class="wp-field">
+              <label class="wp-label">Special Requests</label>
+              <textarea class="wp-textarea"
+                placeholder="Dietary requirements, allergies, special occasions, seating preferences…"></textarea>
+            </div>
+            <div class="wp-submit-row">
+              <button class="wp-submit" id="res-btn">Request Reservation</button>
+              <p class="wp-note">No credit card required. We'll confirm by email within 2 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="testimonials-section bg-white" id="reviews">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">Guest Reviews</div>
+        <h2 class="section-title">What our guests <em>say</em></h2>
+        <p class="section-description">Don't take our word for it — here's what guests who've dined with us are saying.
+        </p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <div class="quote-mark">"</div>
+          <div class="star-row">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">The tagliatelle al ragù was unlike anything I've had outside of Bologna. You can
+            taste the patience in every bite. This is what Italian food is supposed to taste like.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar av-red">SE</div>
+            <div>
+              <div class="author-name">Sophie Erickson</div>
+              <div class="author-detail">San Francisco, CA · via Google</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="quote-mark">"</div>
+          <div class="star-row">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">We held our anniversary dinner here and the staff made it feel genuinely special.
+            The sommelier's pairings were perfect — every glass elevated the meal. We'll be back every year.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar av-dark">DM</div>
+            <div>
+              <div class="author-name">Daniel & Maya</div>
+              <div class="author-detail">Nob Hill, SF · via TripAdvisor</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="quote-mark">"</div>
+          <div class="star-row">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">As a food writer I'm skeptical of "authentic" claims. La Cucina earns that word.
+            The burrata alone is worth the drive. One of the finest Italian restaurants on the West Coast.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar av-wine">RK</div>
+            <div>
+              <div class="author-name">Rachel Kim</div>
+              <div class="author-detail">Food Critic, SF Chronicle</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BAND ═══ -->
+  <div class="cta-band">
+    <div class="container">
+      <h2>Ready for an <em>unforgettable</em> evening?</h2>
+      <p>Join us for lunch, dinner, or a private event. We'd love to welcome you.</p>
+      <div class="cta-buttons">
+        <a href="#reservation" class="btn-gold">Reserve a Table</a>
+        <a href="tel:+14158234400" class="btn-white-outline">Call Us: (415) 823-4400</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="footer-logo">La <span>Cucina</span></a>
+          <p class="footer-tagline">Authentic Italian cuisine in the heart of San Francisco, crafted with tradition and
+            served with warmth since 1987.</p>
+          <div class="social-row">
+            <a href="#" class="social-btn">IG</a>
+            <a href="#" class="social-btn">FB</a>
+            <a href="#" class="social-btn">TW</a>
+            <a href="#" class="social-btn">YP</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reservation">Reservations</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Dining</div>
+          <ul class="footer-links">
+            <li><a href="#">Lunch Menu</a></li>
+            <li><a href="#">Dinner Menu</a></li>
+            <li><a href="#">Wine List</a></li>
+            <li><a href="#">Tasting Menu</a></li>
+            <li><a href="#">Private Events</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-info-items">
+            <div class="footer-info-item">
+              <strong>Address</strong>
+              284 Columbus Ave, North Beach<br>San Francisco, CA 94133
+            </div>
+            <div class="footer-info-item">
+              <strong>Phone</strong>
+              +1 (415) 823-4400
+            </div>
+            <div class="footer-info-item">
+              <strong>Email</strong>
+              hello@lacucina.com
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 La Cucina. All rights reserved. | <a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
+        <p>Website designed by <a href="#">Nuvora Agency</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── HEADER SCROLL ── */
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    /* ── HAMBURGER ── */
+    const ham = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    ham.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+      const spans = ham.querySelectorAll('span');
+      const isOpen = mobileNav.classList.contains('open');
+      spans[0].style.transform = isOpen ? 'translateY(7px) rotate(45deg)' : '';
+      spans[1].style.opacity = isOpen ? '0' : '1';
+      spans[2].style.transform = isOpen ? 'translateY(-7px) rotate(-45deg)' : '';
+    });
+    document.querySelectorAll('.mob-link, .mob-btn').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        ham.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      });
+    });
+
+    /* ── MENU DATA ── */
+    const MENUS = {
+      antipasti: [
+        { n: '01', name: 'Burrata con Pomodorini', desc: 'Creamy burrata, heirloom tomatoes, Sicilian basil oil, sea salt flakes', price: '$18', badge: 'veg', badgeLabel: 'Vegetarian' },
+        { n: '02', name: 'Carpaccio di Manzo', desc: 'Thinly sliced beef tenderloin, truffle dressing, aged parmigiano, capers', price: '$24', badge: 'chefs', badgeLabel: "Chef's Pick" },
+        { n: '03', name: 'Crostini al Tartufo', desc: 'House-baked bread, black truffle cream, ricotta, chive oil', price: '$16', badge: 'veg', badgeLabel: 'Vegetarian' },
+        { n: '04', name: 'Polpo alla Griglia', desc: 'Charred octopus, braised white bean purée, nduja oil, fresh lemon', price: '$28', badge: 'gf', badgeLabel: 'Gluten Free' },
+        { n: '05', name: 'Bruschetta della Casa', desc: 'Grilled sourdough, slow-roasted tomato, Calabrian chilli, ricotta salata', price: '$14', badge: 'veg', badgeLabel: 'Vegetarian' },
+        { n: '06', name: 'Insalata di Stagione', desc: 'Market greens, candied walnut, shaved fennel, honey-mustard vinaigrette', price: '$15', badge: 'gf', badgeLabel: 'Gluten Free' },
+      ],
+      pasta: [
+        { n: '01', name: 'Tagliatelle al Ragù', desc: 'Slow-braised beef & pork, 6-hour Bolognese, aged parmigiano reggiano', price: '$32', badge: 'chefs', badgeLabel: "Chef's Pick" },
+        { n: '02', name: 'Cacio e Pepe', desc: 'Tonnarelli, Pecorino Romano DOP, fresh Tellicherry black pepper', price: '$26', badge: 'veg', badgeLabel: 'Vegetarian' },
+        { n: '03', name: 'Pappardelle al Cinghiale', desc: 'Wild boar ragù, juniper, rosemary, aged pecorino sardo', price: '$36', badge: 'chefs', badgeLabel: "Chef's Pick" },
+        { n: '04', name: 'Orecchiette con Salsiccia', desc: 'House sausage, broccoli rabe, garlic, chilli, pecorino', price: '$29', badge: '', badgeLabel: '' },
+        { n: '05', name: 'Risotto ai Funghi', desc: 'Carnaroli rice, seasonal wild mushrooms, white wine, parsley oil', price: '$34', badge: 'veg', badgeLabel: 'Vegetarian' },
+        { n: '06', name: 'Gnocchi alla Sorrentina', desc: 'Hand-rolled potato gnocchi, San Marzano tomato, buffalo mozzarella, basil', price: '$28', badge: 'veg', badgeLabel: 'Vegetarian' },
+      ],
+      secondi: [
+        { n: '01', name: 'Branzino al Forno', desc: 'Whole roasted sea bass, salmoriglio, caperberry, roasted fennel', price: '$48', badge: 'gf', badgeLabel: 'Gluten Free' },
+        { n: '02', name: 'Bistecca alla Fiorentina', desc: 'T-bone, 600g, 45-day dry-aged, rosemary butter — for two', price: '$120', badge: 'chefs', badgeLabel: "Chef's Pick" },
+        { n: '03', name: 'Agnello alla Scottadito', desc: 'Marinated rack of lamb, mint gremolata, cannellini beans', price: '$52', badge: 'gf', badgeLabel: 'Gluten Free' },
+        { n: '04', name: 'Pollo alla Diavola', desc: 'Spatchcock chicken, Calabrian chilli, lemon, chargrilled greens', price: '$38', badge: 'gf', badgeLabel: 'Gluten Free' },
+        { n: '05', name: 'Salmone in Crosta', desc: 'Atlantic salmon, pistachio crust, lemon beurre blanc, asparagus', price: '$44', badge: '', badgeLabel: '' },
+        { n: '06', name: 'Ossobuco alla Milanese', desc: 'Braised veal shank, gremolata, saffron risotto Milanese', price: '$58', badge: 'chefs', badgeLabel: "Chef's Pick" },
+      ],
+      dolci: [
+        { n: '01', name: 'Tiramisù della Casa', desc: 'Savoiardi, Taylors 20yr Tawny Port, mascarpone, Valrhona cocoa', price: '$16', badge: 'chefs', badgeLabel: "Chef's Pick" },
+        { n: '02', name: 'Panna Cotta al Miele', desc: 'Honey vanilla panna cotta, poached pear, almond brittle', price: '$14', badge: 'gf', badgeLabel: 'Gluten Free' },
+        { n: '03', name: 'Cannoli Siciliani', desc: 'Crisp pastry, fresh ricotta, candied orange zest, crushed pistachio', price: '$15', badge: '', badgeLabel: '' },
+        { n: '04', name: 'Torta al Cioccolato', desc: 'Dark chocolate fondant, hazelnut gelato, fleur de sel caramel', price: '$18', badge: 'veg', badgeLabel: 'Vegetarian' },
+        { n: '05', name: 'Gelato della Stagione', desc: 'Three scoops of seasonal house-made gelato, freshly churned daily', price: '$12', badge: 'veg', badgeLabel: 'Vegetarian' },
+        { n: '06', name: 'Formaggi Italiani', desc: 'Artisan Italian cheeses, wildflower honey, mostarda, house-baked grissini', price: '$22', badge: 'gf', badgeLabel: 'Gluten Free' },
+      ],
+    };
+
+    function renderMenu(category) {
+      const badgeClass = { veg: 'badge-veg', chefs: 'badge-chefs', gf: 'badge-gf' };
+      return MENUS[category].map(item => `
+    <div class="menu-card">
+      <div class="menu-number">${item.n}</div>
+      <div class="menu-card-body">
+        <div class="menu-dish-name">${item.name}</div>
+        <div class="menu-dish-desc">${item.desc}</div>
+        ${item.badge ? `<span class="menu-dish-badge ${badgeClass[item.badge]}">${item.badgeLabel}</span>` : ''}
+      </div>
+      <div class="menu-price">${item.price}</div>
+    </div>
+  `).join('');
+    }
+
+    function switchTab(btn, cat) {
+      document.querySelectorAll('.menu-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('menu-grid').innerHTML = renderMenu(cat);
+    }
+
+    document.getElementById('menu-grid').innerHTML = renderMenu('antipasti');
+
+    /* ── RESERVATION BUTTON ── */
+    document.getElementById('res-btn').addEventListener('click', function () {
+      this.textContent = '✓ Request Sent! We\'ll confirm by email.';
+      this.style.background = '#2A7A4B';
+      this.disabled = true;
+      setTimeout(() => {
+        this.textContent = 'Request Reservation';
+        this.style.background = '';
+        this.disabled = false;
+      }, 4000);
+    });
+
+    /* ── SCROLL FADE ANIMATION ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
